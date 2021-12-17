@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List ThuongNT</title>
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+    <!--Boostrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!--Css-->
+    <link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="tasks">
+            <h2 class="tasks__list-title">My lists</h2>
+            <ul class="tasks__list" data-list>
+                <!-- <li class="tasks__list-name active-list">Youtube</li>
+                <li class="tasks__list-name">Work</li> -->
+            </ul>
+            <form action="" class="tasks__form" data-new-list-form>
+                <input type="text" class="tasks__list-new new list" placeholder="New list name"
+                    aria-label="new list name" data-new-list-input />
+                <button class="btn btn--create" aria-label="create new list">+</button>
+            </form>
+        </div>
+
+        <div class="todo-list" data-list-display>
+            <div class="todo-list__header">
+                <h2 class="tasks__list-title" data-list-title>Test</h2>
+                <p class="tasks__count" data-list-count-remaining>2 tasks remaining</p>
+                <p class="tasks__count" data-list-count-complete>1 task complete</p>
+            </div>
+
+            <div class="todo-list__body">
+
+                <div class="tasks" style="width: 100%;" data-item></div>
+                <div class="todo-list__creator">
+                    <form action="" class="todo-list__form" data-new-task-form>
+                        <input data-new-task-input type="text" class="todo-list__new new task"
+                            placeholder="New task name" aria-label="new task name" />
+                        <button class="btn btn--create" style="width: 10%; margin-left: 10px;"
+                            aria-label="create new task">+</button>
+                    </form>
+                </div>
+
+                <div class="todo-list__action">
+                    <button class="btn btn--delete" style="margin-top: 40px" data-clear-item>Clear
+                        completed
+                        tasks</button>
+                    <button class="btn btn--delete" style="margin-top: 40px;" data-delete-list>Delete list</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Using template: code html dont show on web, until used js -->
+    <template id="task-template" class="todo-list__template d-flex flex-row" data-item-list>
+        <div class="todo-list__item d-flex justify-content-between">
+            <input class="add-item" type="checkbox" data-item-input />
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

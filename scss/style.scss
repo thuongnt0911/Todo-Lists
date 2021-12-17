@@ -1,0 +1,192 @@
+@import "abstract/mixin";
+@import "abstract/reset";
+@import "abstract/common";
+
+.tasks {
+    width: 40%;
+    &__list {
+        font-size: 20px;
+        line-height: 1.7;
+        list-style: circle;
+        padding-left: 20px;
+
+        &-title {
+            width: 100%;
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        &-name {
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        &-new {
+            background: transparent;
+            border: 0;
+            color: inherit;
+            border-bottom: 1px solid currentColor;
+            font-size: inherit;
+            outline: none;
+            padding: 10px;
+            transition: border-bottom 150ms ease-in;
+            order: 2;
+
+            &::placeholder {
+                opacity: 0.4;
+                color: #fff;
+            }
+
+            &:focus {
+                border-bottom-width: 3px;
+            }
+
+            &:focus::placeholder {
+                opacity: 0.15;
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__count {
+        width: 50%;
+        margin-right: 30px;
+        font-size: 16px;
+    }
+}
+
+.btn {
+    &--create {
+        font-size: 24px;
+        font-weight: 900;
+        margin-right: 10px;
+        transition: opacity 250ms ease-in;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &--delete {
+        opacity: 0.7;
+        font-size: 18px;
+        color: #fff;
+
+        &:hover {
+            color: aqua;
+        }
+    }
+}
+
+.todo-list {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    width: 40%;
+    margin-left: 30px;
+
+    @include tablet {
+        margin-top: 30px;
+        margin-left: 0;
+        width: 60%;
+    }
+
+    &__header {
+        padding: 30px;
+        background: #e4e4e4;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__body {
+        padding: 30px;
+        position: relative;
+    }
+
+    &__check {
+        display: flex-inline;
+        align-items: center;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__item {
+        position: relative;
+        margin-bottom: 1.25em;
+        width: 100%;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: -0.5em;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.1;
+        }
+    }
+
+    &__creator {
+        .create {
+            color: var(--clr-primary);
+        }
+    }
+
+    &__action {
+        display: flex;
+        position: absolute;
+        justify-content: space-between;
+        width: 100%;
+        left: 0;
+        bottom: -35px;
+        color: var(--clr-light);
+    }
+
+    &__new {
+        width: 80%;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #000;
+    }
+
+    &__form {
+        display: flex;
+    }
+}
+
+.custom-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+    box-shadow: inset 0 0 0px 2px white;
+}
+
+[type="checkbox"]:checked + label {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+[type="checkbox"]:checked + label::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}

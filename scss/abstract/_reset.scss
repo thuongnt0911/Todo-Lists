@@ -1,0 +1,56 @@
+:root {
+    --clr-primary: rgb(54, 112, 199);
+    --clr-light: #f4f4f4;
+    --clr-dark: #333;
+    --clr-warning: rgb(99, 36, 36);
+}
+
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    background-color: #006a71;
+    color: var(--clr-light);
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+button {
+    outline: none;
+
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+input {
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
